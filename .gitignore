@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Large model files
+*.onnx
+*.pt
+*.pth
+*.ts
+yoloe-v8l-seg.pt
+mobileclip_blt.ts
