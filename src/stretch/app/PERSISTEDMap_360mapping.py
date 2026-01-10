@@ -72,6 +72,9 @@ class PersistentMapping360:
         self.pickup_executor = None
         self._setup_pickup_executor()
     
+    
+        
+    
     def _robot_say(self, message: str):
         """Make robot speak a message for debugging workflow"""
         if not self.enable_speech_debug:
@@ -122,6 +125,13 @@ class PersistentMapping360:
                 print("🔧 Continuing without dynamic memory features")
             self.use_dynamic_memory = False
         
+
+    def dynamicPlacements(self, currentlyHolding: str, receptacle: str):
+        #has to happen at the end of a placement call, will move the waypoints
+        receptacleWaypointPair = self.detected_waypoints[receptacle] #will this return the instace, score as a tuple?
+        recepLocation = self.receptacleWaypointPair[0].point_cloud
+        self.detected_waypoints[currentlyHolding].instance = recepLocation
+
     def _setup_pickup_executor(self):
         """Initialize pickup functionality for grab commands"""
         if self.robot is None or self.agent is None:
